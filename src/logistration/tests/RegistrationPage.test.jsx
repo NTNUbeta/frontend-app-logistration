@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
+import { mount } from 'enzyme';
 import { IntlProvider, injectIntl, configure } from '@edx/frontend-platform/i18n';
 
 import RegistrationPage from '../RegistrationPage';
@@ -14,6 +15,7 @@ describe('./RegistrationPage.js', () => {
   const initialState = {
     logistration: {
       registrationResult: { success: false, redirectUrl: '' },
+      thirdPartyAuthContext: { secondaryProviders: [] },
     },
   };
 
@@ -70,6 +72,64 @@ describe('./RegistrationPage.js', () => {
     window.location = { href: '' };
     renderer.create(reduxWrapper(<IntlRegistrationPage />));
     expect(window.location.href).toBe(dasboardUrl);
+  });
+
+  it('should display institution register button', () => {
+    store = mockStore({
+      ...store,
+      logistration: {
+        ...store.logistration,
+        registrationResult: {
+          success: true,
+          redirectUrl: '',
+        },
+        thirdPartyAuthContext: {
+          providers: [],
+          secondaryProviders: [
+            {
+              id: 'saml-test',
+              name: 'Test University',
+              loginUrl: '/dummy-auth',
+              registerUrl: '/dummy_auth',
+            },
+          ],
+        },
+      },
+    });
+    const root = mount(reduxWrapper(<IntlRegistrationPage {...props} />));
+    expect(root.text().includes('Use my institution/campus credentials')).toBe(true);
+  });
+
+  it('should not display institution register button', () => {
+    const root = mount(reduxWrapper(<IntlRegistrationPage {...props} />));
+    expect(root.text().includes('Use my institution/campus credentials')).toBe(false);
+  });
+
+  it('should display institution register page', () => {
+    store = mockStore({
+      ...store,
+      logistration: {
+        ...store.logistration,
+        registrationResult: {
+          success: true,
+          redirectUrl: '',
+        },
+        thirdPartyAuthContext: {
+          providers: [],
+          secondaryProviders: [
+            {
+              id: 'saml-test',
+              name: 'Test University',
+              loginUrl: '/dummy-auth',
+              registerUrl: '/dummy_auth',
+            },
+          ],
+        },
+      },
+    });
+    const root = mount(reduxWrapper(<IntlRegistrationPage {...props} />));
+    root.find('button.submit').at(0).simulate('click', { institutionLogin: true });
+    expect(root.text().includes('Test University')).toBe(true);
   });
 
   it('should show error message on 409', () => {

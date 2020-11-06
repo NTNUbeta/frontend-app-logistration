@@ -6,7 +6,6 @@ import configureStore from 'redux-mock-store';
 
 import { getConfig } from '@edx/frontend-platform';
 import { IntlProvider, injectIntl } from '@edx/frontend-platform/i18n';
-
 import LoginPage from '../LoginPage';
 
 const IntlLoginPage = injectIntl(LoginPage);
@@ -22,6 +21,7 @@ describe('LoginPage', () => {
         currentProvider: null,
         finishAuthUrl: null,
         providers: [],
+        secondaryProviders: [],
       },
     },
   };
@@ -218,5 +218,63 @@ describe('LoginPage', () => {
 
     const loginPage = mount(reduxWrapper(<IntlLoginPage {...props} />));
     expect(loginPage.find('#tpa-alert').find('span').text()).toEqual(expectedMessage);
+  });
+
+  it('should display institution login button', () => {
+    store = mockStore({
+      ...store,
+      logistration: {
+        ...store.logistration,
+        loginResult: {
+          success: true,
+          redirectUrl: '',
+        },
+        thirdPartyAuthContext: {
+          providers: [],
+          secondaryProviders: [
+            {
+              id: 'saml-test',
+              name: 'Test University',
+              loginUrl: '/dummy-auth',
+              registerUrl: '/dummy_auth',
+            },
+          ],
+        },
+      },
+    });
+    const root = mount(reduxWrapper(<IntlLoginPage {...props} />));
+    expect(root.text().includes('Use my university info')).toBe(true);
+  });
+
+  it('should not display institution login button', () => {
+    const root = mount(reduxWrapper(<IntlLoginPage {...props} />));
+    expect(root.text().includes('Use my university info')).toBe(false);
+  });
+
+  it('should display institution login page', () => {
+    store = mockStore({
+      ...store,
+      logistration: {
+        ...store.logistration,
+        loginResult: {
+          success: true,
+          redirectUrl: '',
+        },
+        thirdPartyAuthContext: {
+          providers: [],
+          secondaryProviders: [
+            {
+              id: 'saml-test',
+              name: 'Test University',
+              loginUrl: '/dummy-auth',
+              registerUrl: '/dummy_auth',
+            },
+          ],
+        },
+      },
+    });
+    const loginPage = mount(reduxWrapper(<IntlLoginPage {...props} />));
+    loginPage.find('button.submit').at(0).simulate('click', { institutionLogin: true });
+    expect(loginPage.text().includes('Test University')).toBe(true);
   });
 });
