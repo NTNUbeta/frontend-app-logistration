@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 
 import { getConfig } from '@edx/frontend-platform';
@@ -172,7 +172,7 @@ describe('LoginPage', () => {
   it('should call the componentDidMount lifecycle method', () => {
     const spy = jest.spyOn(LoginPage.WrappedComponent.prototype, 'componentDidMount');
 
-    mount(reduxWrapper(<IntlLoginPage {...props} />));
+    shallow(<LoginPage {...props} />);
     expect(spy).toHaveBeenCalled();
   });
 
@@ -274,7 +274,7 @@ describe('LoginPage', () => {
       },
     });
     const loginPage = mount(reduxWrapper(<IntlLoginPage {...props} />));
-    loginPage.find('button.submit').at(0).simulate('click', { institutionLogin: true });
+    loginPage.find('button.btn-outline-primary').simulate('click', { institutionLogin: true });
     expect(loginPage.text().includes('Test University')).toBe(true);
   });
 });

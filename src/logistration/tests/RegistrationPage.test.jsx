@@ -61,7 +61,7 @@ describe('./RegistrationPage.js', () => {
     store = mockStore({
       ...store,
       logistration: {
-        ...store.logistration,
+        ...initialState.logistration,
         registrationResult: {
           success: true,
           redirectUrl: dasboardUrl,
@@ -78,7 +78,7 @@ describe('./RegistrationPage.js', () => {
     store = mockStore({
       ...store,
       logistration: {
-        ...store.logistration,
+        ...initialState.logistration,
         registrationResult: {
           success: true,
           redirectUrl: '',
@@ -109,7 +109,7 @@ describe('./RegistrationPage.js', () => {
     store = mockStore({
       ...store,
       logistration: {
-        ...store.logistration,
+        ...initialState.logistration,
         registrationResult: {
           success: true,
           redirectUrl: '',
@@ -128,7 +128,7 @@ describe('./RegistrationPage.js', () => {
       },
     });
     const root = mount(reduxWrapper(<IntlRegistrationPage {...props} />));
-    root.find('button.submit').at(0).simulate('click', { institutionLogin: true });
+    root.find('button.btn-outline-primary').simulate('click', { institutionLogin: true });
     expect(root.text().includes('Test University')).toBe(true);
   });
 
