@@ -2,27 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from '@edx/frontend-platform/i18n';
 
-import { Alert, Hyperlink } from '@edx/paragon';
-
-const processLink = (link) => {
-  let matches;
-  link.replace(/(.*)<a href=["']([^"']*).*>([^<]+)<\/a>(.*)/g, function () { // eslint-disable-line func-names
-    matches = Array.prototype.slice.call(arguments, 1, 5); // eslint-disable-line  prefer-rest-params
-  });
-  return matches;
-};
+import { Alert } from '@edx/paragon';
+import { processLink } from '../data/utils/dataUtils';
+import Link from '../common/Link';
 
 const LoginFailureMessage = (props) => {
-  const Link = (args) => (
-    <>
-      {args.beforeLink}
-      <Hyperlink destination={args.link}>
-        {args.linkText}
-      </Hyperlink>
-      {args.afterLink}
-    </>
-  );
-
   const errorMessage = props.errors;
   let errorList = errorMessage.trim().split('\n');
   errorList = errorList.map((error) => {

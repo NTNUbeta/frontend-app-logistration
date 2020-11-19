@@ -64,6 +64,32 @@ describe('./RegistrationPage.js', () => {
           success: true,
           redirectUrl: dasboardUrl,
         },
+        formData: {
+          fields: [{
+            label: 'I agree to the Your Platform Name Here <a href="/honor" rel="noopener" target="_blank">Honor Code</a>',
+            name: 'honor_code',
+            type: 'checkbox',
+            errorMessages: {
+              required: 'You must agree to the Your Platform Name Here Honor Code',
+            },
+          },
+          {
+            label: 'Gender',
+            name: 'gender',
+            type: 'select',
+            errorMessages: {
+              required: '',
+            },
+          },
+          {
+            label: 'Mailing address',
+            name: 'mailing_address',
+            type: 'textarea',
+            errorMessages: {
+              required: 'Enter your mailing address.',
+            },
+          }],
+        },
       },
     });
     delete window.location;
@@ -100,7 +126,6 @@ describe('./RegistrationPage.js', () => {
             },
           ],
         },
-        response_status: 'complete',
       },
     });
 
