@@ -2,4 +2,309 @@
 
 exports[`./RegistrationPage.js should match default section snapshot 1`] = `<div />`;
 
-exports[`./RegistrationPage.js should show error message on 409 1`] = `<div />`;
+exports[`./RegistrationPage.js should show error message on 409 1`] = `
+<div
+  className="logistration-container d-flex flex-column align-items-center mx-auto"
+  style={
+    Object {
+      "width": "30rem",
+    }
+  }
+>
+  <div
+    className="fade alert alert-danger show"
+    role="alert"
+  >
+    <h4
+      style={
+        Object {
+          "color": "#a0050e",
+        }
+      }
+    >
+      <span>
+        We couldn't create your account.
+      </span>
+    </h4>
+    <div>
+      <ul>
+        <li
+          style={
+            Object {
+              "textAlign": "left",
+            }
+          }
+        >
+          It looks like test@gmail.com belongs to an existing account. Try again with a different email address.
+        </li>
+        <li
+          style={
+            Object {
+              "textAlign": "left",
+            }
+          }
+        >
+          It looks like test belongs to an existing account. Try again with a different username.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    className="mb-4"
+  >
+    <svg
+      aria-hidden="true"
+      className="svg-inline--fa fa-graduation-cap fa-w-20 d-block mx-auto fa-2x"
+      data-icon="graduation-cap"
+      data-prefix="fas"
+      focusable="false"
+      role="img"
+      style={Object {}}
+      viewBox="0 0 640 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"
+        fill="currentColor"
+        style={Object {}}
+      />
+    </svg>
+    <h4
+      className="d-block mx-auto"
+    >
+      Start learning now!
+    </h4>
+  </div>
+  <div
+    className="d-block mb-4"
+  >
+    <span
+      className="d-block mx-auto mb-4 section-heading-line"
+    >
+      Create an account using
+    </span>
+    <button
+      className="btn-social facebook"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-facebook-f fa-w-10 mr-2"
+        data-icon="facebook-f"
+        data-prefix="fab"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 320 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+      Facebook
+    </button>
+    <button
+      className="btn-social google"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-google fa-w-16 mr-2"
+        data-icon="google"
+        data-prefix="fab"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 488 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+      Google
+    </button>
+    <button
+      className="btn-social microsoft"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-microsoft fa-w-14 mr-2"
+        data-icon="microsoft"
+        data-prefix="fab"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 32h214.6v214.6H0V32zm233.4 0H448v214.6H233.4V32zM0 265.4h214.6V480H0V265.4zm233.4 0H448V480H233.4V265.4z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+      Microsoft
+    </button>
+    <span
+      className="d-block mx-auto text-center mt-4 section-heading-line"
+    >
+      or create a new one here
+    </span>
+  </div>
+  <form
+    className="mb-4 mx-auto form-group"
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        className="h6 pt-3"
+        htmlFor="email"
+      >
+        Email (required)
+      </label>
+      <input
+        aria-describedby=""
+        className="form-control"
+        id="email"
+        name="email"
+        onChange={[Function]}
+        placeholder=""
+        required={true}
+        type="email"
+        value=""
+      />
+      <strong
+        className="invalid-feedback"
+        id="email-invalid-feedback"
+      >
+        Enter a valid email address that contains at least 3 characters.
+      </strong>
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className="h6 pt-3"
+        htmlFor="name"
+      >
+        Full Name (required)
+      </label>
+      <input
+        aria-describedby=""
+        className="form-control"
+        id="name"
+        name="name"
+        onChange={[Function]}
+        placeholder=""
+        required={true}
+        type="text"
+        value=""
+      />
+      <strong
+        className="invalid-feedback"
+        id="name-invalid-feedback"
+      >
+        Enter your full name.
+      </strong>
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className="h6 pt-3"
+        htmlFor="username"
+      >
+        Public Username (required)
+      </label>
+      <input
+        aria-describedby=""
+        className="form-control"
+        id="username"
+        name="username"
+        onChange={[Function]}
+        placeholder=""
+        required={true}
+        type="text"
+        value=""
+      />
+      <strong
+        className="invalid-feedback"
+        id="username-invalid-feedback"
+      >
+        Username must be between 2 and 30 characters long.
+      </strong>
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className="h6 pt-3"
+        htmlFor="password"
+      >
+        Password (required)
+      </label>
+      <input
+        aria-describedby=""
+        className="form-control"
+        id="password"
+        name="password"
+        onChange={[Function]}
+        placeholder=""
+        required={true}
+        type="password"
+        value=""
+      />
+      <strong
+        className="invalid-feedback"
+        id="password-invalid-feedback"
+      >
+        This password is too short. It must contain at least 8 characters. This password must contain at least 1 number.
+      </strong>
+    </div>
+    <span>
+      By creating an account, you agree to the 
+      <a
+        href="https://www.edx.org/edx-terms-service"
+      >
+        Terms of Service and Honor Code
+      </a>
+       and you acknowledge that edX and each Member process your personal data in accordance with the 
+      <a
+        href="https://www.edx.org/edx-privacy-policy"
+      >
+        Privacy Policy
+      </a>
+      .
+    </span>
+    <button
+      className="btn-primary mt-4 submit btn btn-primary"
+      disabled={false}
+      inputRef={[Function]}
+      onClick={[Function]}
+      type="button"
+    >
+      Create Account
+    </button>
+  </form>
+  <div
+    className="text-center mb-2 pt-2"
+  >
+    <span>
+      Already have an edX account?
+    </span>
+    <a
+      href="/login"
+    >
+       Sign in.
+    </a>
+  </div>
+</div>
+`;
